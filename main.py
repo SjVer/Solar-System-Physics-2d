@@ -24,7 +24,7 @@ print('\n Launching main.py...\n')
 WIDTH, HEIGHT = 1200, 800
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Solar System Physics 2d")
-FONT = pygame.font.SysFont(os.path.join('fonts', 'OpenSans-Regular.ttf'), 20)
+FONT = pygame.font.SysFont('comicsans'), 20)
 
 display_text1 = 'Orbital Physics simulator 2d'
 
