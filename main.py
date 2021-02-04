@@ -120,13 +120,14 @@ def handle_keys(center, showtraces, pause):
                 else:
                     pause = True   
             if event.key == pygame.K_SLASH and pygame.key.get_mods() & pygame.KMOD_SHIFT:
-                print('\nHelp:')
+                print('\n  Help:')
                 print('\tControls:')
                 print('\tp: toggle pause')
                 print('\tt: switch trail mode (off/dots/lines)')
                 print('\tup: focus on next body')
                 print('\tdown: focus on previous body')
                 print('\t?: help\n')
+                print('  For customisation edit "bodies.py"')
                 
     return center, showtraces, pause
     
