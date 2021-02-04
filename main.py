@@ -19,12 +19,13 @@ sys.setrecursionlimit(10000)
 clock = pygame.time.Clock()
 
 print('\n Launching main.py...\n')
+print(' press [?] in game for help\n')
 
 #CONSTANTS
 WIDTH, HEIGHT = 1200, 800
 WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Solar System Physics 2d")
-FONT = pygame.font.SysFont('comicsans'), 20)
+FONT = pygame.font.SysFont(os.path.join('fonts', 'OpenSans-Regular.ttf'), 20)
 
 display_text1 = 'Orbital Physics simulator 2d'
 
@@ -46,7 +47,6 @@ for body in bodies.bodies.keys():
     color = bodies.bodies[body]['color']
     trace = [color]
     traces.append(trace)
-print(f'traces: {traces}')
 slingshots = []
 
 run = True
@@ -85,6 +85,7 @@ def draw_window(bodies, center, showtraces, slingshots):
     
     
 def handle_keys(center, showtraces, pause):
+    keys_pressed = pygame.key.get_pressed()
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -118,8 +119,15 @@ def handle_keys(center, showtraces, pause):
                     pause = False
                 else:
                     pause = True   
+            if event.key == pygame.K_SLASH and pygame.key.get_mods() & pygame.KMOD_SHIFT:
+                print('\nHelp:')
+                print('\tControls:')
+                print('\tp: toggle pause')
+                print('\tt: switch trail mode (off/dots/lines)')
+                print('\tup: focus on next body')
+                print('\tdown: focus on previous body')
+                print('\t?: help\n')
                 
-    keys_pressed = pygame.key.get_pressed()
     return center, showtraces, pause
     
 
